@@ -89,8 +89,8 @@ CTRL-SHIFT
   | RIGHT | RIGHTARROW | SCROLLOCK | SHIFT <sKey> | SPACE | STRING <text> | TAB | UP | UPARROW | WINDOWS <char>
 
 <aKey> ::= END | ESC | ESCAPE | F1…F12 | <char> | SPACE | TAB
-<cKey> ::=  BREAK | PAUSE | F1…F12 | ESCAPE | ESC | Single Char
-<skey> ::= NULL
+<cKey> ::= BREAK | PAUSE | F1…F12 | ESCAPE | ESC | Single Char
+<skey> ::= DELETE | HOME | INSERT | PAGEUP | PAGEDOWN | WINDOWS | GUI | UPARROW | DOWNARROW | LEFTARROW | RIGHTARROW | TAB
 <char> ::= [alpha numeric not space]
 <num> ::= [any int up to 10,000]
 <text> :: <char> <text> | SPACE <text> | <num> <text> | λ

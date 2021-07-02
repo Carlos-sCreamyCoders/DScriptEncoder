@@ -88,7 +88,7 @@ def aKey(words):
     ]
     print(" len:", len(words))
     print(words)
-		#makes sure there is only 1 command and 1 arg (length = 2)
+    #makes sure there is only 1 command and 1 arg (length = 2)
     if (len(words) != 2):
         raise Exception(
             "Invalid use of ALT; no argument or too many arguments; line",
@@ -100,6 +100,7 @@ def aKey(words):
     else:
         raise Exception("Invalid argument for ALT; line", lineNum)
 
+
 def ctrlCmd(words):
     cKeyList = [
         BREAK, PAUSE, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
@@ -107,7 +108,7 @@ def ctrlCmd(words):
     ]
     print(" len:", len(words))
     print(words)
-		#makes sure there is only 1 command and 1 arg (length = 2)
+    #makes sure there is only 1 command and 1 arg (length = 2)
     if (len(words) != 2):
         raise Exception(
             "Invalid use of CTRL; no argument or too many arguments; line",
@@ -119,10 +120,11 @@ def ctrlCmd(words):
     else:
         raise Exception("Invalid argument for CTRL; line", lineNum)
 
+
 def delayCmd(words):
     print(" len:", len(words))
     print(words)
-		#makes sure there is only 1 command and 1 arg (length = 2)
+    #makes sure there is only 1 command and 1 arg (length = 2)
     if (len(words) != 2):
         raise Exception(
             "Invalid use of DELAY; no argument or too many arguments; line",
@@ -134,31 +136,32 @@ def delayCmd(words):
     else:
         raise Exception("Invalid argument for DELAY; line", lineNum)
 
-def guiCmd(words):
+
+def superCmd(words):
     print(" len:", len(words))
     print(words)
-		#makes sure there is only 1 command and 1 arg (length = 2)
+    #makes sure there is only 1 command and 1 arg (length = 2)
     if (len(words) != 2):
         raise Exception(
             "Invalid use of ALT; no argument or too many arguments; line",
             lineNum)
     key = words[1]
     keyVal = lang.index(key)
-		#is alpha numeric but not space
+    #is alpha numeric but not space
     if (keyVal.isalnum() and keyVal != ' '):
         pass
     else:
         raise Exception("Invalid argument for ALT; line", lineNum)
 
+
 def shiftCmd(words):
-		#TODO: make skey list in ('dscript grammer.txt':93)
     sKeyList = [
-        BREAK, PAUSE, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
-        ESCAPE, ESC, SingleChar
+        DELETE, HOME, INSERT, PAGEUP, PAGEDOWN, WINDOWS, GUI, UPARROW,
+        DOWNARROW, LEFTARROW, RIGHTARROW, TAB
     ]
     print(" len:", len(words))
     print(words)
-		#makes sure there is only 1 command and 1 arg (length = 2)
+    #makes sure there is only 1 command and 1 arg (length = 2)
     if (len(words) != 2):
         raise Exception(
             "Invalid use of SHIFT; no argument or too many arguments; line",
@@ -186,13 +189,11 @@ def parseLine(line):
                 ctrlCmd(words)
             elif (cmd == 9):  #delay
                 delayCmd(words)
-            elif (cmd == 29):  #gui
-                guiCmd(words)
+            elif (cmd == 29 or cmd == 49):  #super (windows)
+                superCmd(words)
             elif (cmd == 43):  #shift
                 shiftCmd(words)
             elif (cmd == 45):  #string
-                pass
-            elif (cmd == 49):  #windows
                 pass
             print()
     else:
