@@ -72,6 +72,7 @@ CTRL_SHIFT=6
 
 lineNum = 0
 
+
 def aKey(words):
   aKeyList = [END, ESC, ESCAPE, F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12, SingleChar, SPACE, TAB]
   print(" len:",len(words))
