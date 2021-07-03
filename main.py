@@ -173,6 +173,16 @@ def shiftCmd(words):
     else:
         raise Exception("Invalid argument for SHIFT; line", lineNum)
 
+def stringCmd(words):
+    print(" len:", len(words))
+    print(words)
+		#all things after STRING are valid
+    #makes sure there is only 1 command and 1 arg (length = 2)
+    if (len(words) != 2):
+        raise Exception(
+            "Invalid use of SHIFT; no argument or too many arguments; line",
+            lineNum)
+
 
 def parseLine(line):
     line = line.replace('\n', "").replace("\r", "")
@@ -194,7 +204,7 @@ def parseLine(line):
             elif (cmd == 43):  #shift
                 shiftCmd(words)
             elif (cmd == 45):  #string
-                pass
+                stringCmd(words)
             print()
     else:
         raise Exception("INVALID", line, "\n on line", lineNum)
